@@ -76,7 +76,7 @@
         <!-- Do not translate. -->
         <item>1800000</item>
     </string-array>
-    
+
     <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
     <string-array name="dream_timeout_entries">
         <item>Never</item>
@@ -108,8 +108,8 @@
         <!-- Do not translate. -->
         <item>1800000</item>
     </string-array>
-    
-    <!-- Security settings.  The delay after screen is turned off until device locks. 
+
+    <!-- Security settings.  The delay after screen is turned off until device locks.
          These are shown in a list dialog. -->
     <string-array name="lock_after_timeout_entries">
         <item>Immediately</item>
@@ -144,7 +144,7 @@
         <!-- Do not translate. -->
         <item>1800000</item>
     </string-array>
-    
+
     <string-array name="entries_font_size">
         <item msgid="6490061470416867723">Small</item>
         <item msgid="3579015730662088893">Normal</item>
@@ -158,7 +158,7 @@
         <item>1.15</item>
         <item>1.30</item>
     </string-array>
-    
+
     <!-- TTS settings -->
 
     <!-- Default speech rate choices -->
@@ -186,6 +186,7 @@
         <item>High</item>
         <item>Very high</item>
     </string-array>
+
     <!-- Do not translate. -->
     <string-array name="tts_pitch_values">
         <item>50</item>
@@ -210,7 +211,6 @@
         <item>ita</item>
         <item>spa</item>
     </string-array>
-
 
     <!-- Wi-Fi settings -->
 
@@ -552,7 +552,7 @@
     <string-array name="long_press_timeout_selector_titles">
         <!-- A title for the option for short long-press timeout [CHAR LIMIT=25] -->
         <item>Short</item>
-        <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->        
+        <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->
         <item>Medium</item>
         <!-- A title for the option for long long-press timeout [CHAR LIMIT=25] -->
         <item>Long</item>
@@ -772,4 +772,37 @@
         <!-- Always allow app to send to premium SMS short code. -->
         <item>Always allow</item>
     </string-array>
+
+    <!-- **** EDITS START **** -->
+
+    <!-- Volume Overlay options. -->
+    <string-array name="volume_overlay_entries">
+        <item>Single</item>
+        <item>Expandable</item>
+        <item>Expanded</item>
+        <item>None</item>
+    </string-array>
+
+    <!-- Values for Volume Overlay. Do not translate. -->
+    <string-array name="volume_overlay_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Ring mode options. -->
+    <string-array name="ring_mode_entries" translatable="false">
+        <item>@string/ring_mode_normal</item>
+        <item>@string/ring_mode_vibrate</item>
+        <item>@string/ring_mode_mute</item>
+    </string-array>
+
+    <!-- Values for Ring mode. Do not translate. -->
+    <string-array name="ring_mode_values" translatable="false">
+        <item>normal</item>
+        <item>vibrate</item>
+        <item>mute</item>
+    </string-array>
+
 </resources>
