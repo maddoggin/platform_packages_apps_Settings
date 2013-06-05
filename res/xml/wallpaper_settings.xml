@@ -17,4 +17,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/wallpaper_settings_fragment_title">
 
+     <ListPreference
+        android:key="lockscreen_background"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_custom_background_title"
+        android:title="@string/lockscreen_custom_background_title"
+        android:entries="@array/lockscreen_background_entries"
+        android:entryValues="@array/lockscreen_background_values"/>
+
 </PreferenceScreen>

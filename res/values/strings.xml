@@ -4397,6 +4397,9 @@
     <string name="cell_broadcast_settings">Cell broadcasts</string>
     <!-- Cell Broadcast settings description [CHAR LIMIT=100] -->
     <string name="cell_broadcast_settings_summary">Select the types of emergency alerts to display.</string>
+
+    <string name="ok">OK</string>
+
     <!-- Sound settings screen, the title of the volume bar to adjust the minimum increasing ring volume -->
 
     <string name="link_volume_ringtones">Link ringtone &amp; notifications volumes</string>
@@ -4410,4 +4413,23 @@
     <string name="ring_mode_vibrate">Vibrate</string>
     <string name="ring_mode_mute">Mute</string>
 
+
+    <!-- Custom lock screen background -->
+    <string name="lockscreen_custom_background_title">Lockscreen</string>
+    <string name="lockscreen_custom_background_dialog_title">Choose color</string>
+    <string name="lockscreen_background_result_successful">Background changed successfully</string>
+    <string name="lockscreen_background_result_not_successful">Background could not be changed</string>
+    <string name="lockscreen_background_color_fill">Color fill</string>
+    <string name="lockscreen_background_custom_image">Custom image</string>
+    <string name="lockscreen_background_default_wallpaper">Default wallpaper</string>
+
+
+    <string name="dialog_color_picker">Color picker</string>
+    <string name="press_color_to_apply">Tap on color to apply</string>
+    <string name="arrow_right" translatable="false">\u2192</string>
+    <string name="arrow_down" translatable="false">\u2193</string>
+    <string name="hex_hint" translatable="false">#FF000000</string>
+    <string name="ics_color" translatable="false">!!!</string>
+    <string name="set">Set</string>
+    <string name="hex">Hex:</string>
 </resources>
