@@ -46,7 +46,7 @@ import android.widget.Toast;
 import com.android.settings.R;
 import java.util.List;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.colorpicker.ColorPickerView;
+import com.android.settings.custom.colorpicker.ColorPickerView;
 
 public class WallpaperTypeSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

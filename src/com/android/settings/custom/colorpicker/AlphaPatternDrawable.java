@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.colorpicker;
+package com.android.settings.custom.colorpicker;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
