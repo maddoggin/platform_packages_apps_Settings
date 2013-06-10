@@ -4494,5 +4494,15 @@
 
     <!-- Navigation bar buttons and shortcuts category title -->
     <string name="navigation_bar_category">Navigation bar</string>
+ 
+ <!-- Display Screen-on and off Electron beam animations -->
+    <string name="screen_off_animation_title">Screen-off animation</string>
+    <string name="screen_off_animation_summary">Show the electron beam animation when the screen is turned off</string>
 
+    <string name="defaults_button">Reset to default</string>
+    <string name="category_hardware_title">Hardware</string>
+    <string name="vibrator_tuning_title_head">Vibration strength</string>
+    <string name="vibrator_tuning_summary_head">Adjust the strength of the vibration feedback</string>
+    <string name="vibe_warning">Values higher than 88 are not recommended</string>
+    <string name="vibrator_title">Vibration strength</string>
 </resources>
