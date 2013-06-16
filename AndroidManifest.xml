@@ -1183,7 +1183,7 @@
 
         <activity android:name="ActivityPicker"
                 android:label="@string/activity_picker_label"
-                android:theme="@*android:style/Theme.Dialog.Alert"
+                android:theme="@*android:style/Theme.Holo.Dialog.Alert"
                 android:finishOnCloseSystemDialogs="true">
             <intent-filter>
                 <action android:name="android.intent.action.PICK_ACTIVITY" />
@@ -1440,6 +1440,10 @@
         />
 
         <activity android:name=".custom.SystemSettings" />
+
+        <activity android:name=".custom.LockscreenTargets" />
+
+        <activity android:name=".custom.LockscreenInterface" />
 
         <activity android:name="Settings$PowerMenuSettingsActivity"
                 android:label="@string/power_menu_title"
