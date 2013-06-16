@@ -4399,6 +4399,8 @@
     <string name="cell_broadcast_settings_summary">Select the types of emergency alerts to display.</string>
 
     <string name="ok">OK</string>
+    <string name="reset_title">Reset</string>
+
 
     <!-- INTERFACE Settings  -->
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
@@ -4413,6 +4415,18 @@
     <!-- System Interface settings  -->
     <string name="system_settings_title">System</string>
     <string name="system_interface_title">System interface</string>
+
+    <!-- Lock Screen Shortcuts -->
+    <string name="lockscreen_target_info">Drag the slider to targets to assign shortcuts</string>
+    <string name="lockscreen_target_title">Slider shortcuts</string>
+    <string name="lockscreen_target_summary">View or change custom lock screen shortcuts</string>
+    <string name="lockscreen_target_reset">Lock screen shortcuts reset to default</string>
+    <string name="lockscreen_target_save">Lock screen shortcuts saved</string>
+    <string name="lockscreen_target_reset_title">Reset</string>
+    <string name="lockscreen_target_reset_message">Delete all user created lock screen shortcuts and restore to default?</string>
+    <string name="lockscreen_target_empty">Empty</string>
+    <string name="lockscreen_target_edit_title">Edit shortcut and icon</string>
+    <string name="lockscreen_target_edit_msg">Select or change the desired application or activity and the associated icon</string>
 
 
     <!-- Display : Rotation  -->
@@ -4444,7 +4458,6 @@
     <string name="link_volume_mutes">Silent mode affects notifications</string>
 
     <!-- Display settings screen, notification light settings -->
-    <string name="notification_pulse_title">Notification light</string>
     <string name="notification_light_general_title">General</string>
     <string name="notification_light_applist_title">Applications</string>
     <string name="notification_light_phonelist_title">Phone</string>
@@ -4556,6 +4569,10 @@
     <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
 
 
+    <!-- Reset tiles -->
+    <string name="tiles_reset_title">Reset</string>
+    <string name="tiles_reset_message">Restore the default displayed tiles and layout?</string>
+
     <!-- Custom lock screen background -->
     <string name="lockscreen_custom_background_title">Background</string>
     <string name="lockscreen_custom_background_dialog_title">Choose color</string>
@@ -4602,5 +4619,17 @@
     <string name="navring_action_torch">Toggle torch</string>
     <string name="navring_action_google_now">Google Now</string>
     <string name="navring_choose_action_title">Choose action</string>
+
+    <!-- Quick/Pie Control #CM -->
+    <string name="pie_control_title">Pie controls</string>
+    <string name="pie_control_enabled">Enabled when Expanded desktop is active</string>
+    <string name="pie_control_disabled">Disabled</string>
+    <string name="pie_control_size">Navigation key size</string>
+    <string name="pie_control_trigger_positions">Trigger positions</string>
+    <string name="pie_control_trigger_left">Left screen border</string>
+    <string name="pie_control_trigger_bottom">Bottom screen border</string>
+    <string name="pie_control_trigger_right">Right screen border</string>
+    <string name="pie_control_trigger_top">Top screen border</string>
+    <string name="pie_control_trigger_top_summary">Only navigation will be displayed at top</string>
 
 </resources>

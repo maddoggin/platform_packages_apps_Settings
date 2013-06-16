@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 CyanogenMod
+ * Copyright (C) 2012 Android OpenSource
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
