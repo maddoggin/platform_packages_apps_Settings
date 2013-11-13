@@ -32,6 +32,13 @@
     <string name="advanced_reboot_title">Advanced reboot</string>
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
 
+
+    <!-- Screen off animation -->
+    <string name="screen_off_animation">Screen-off animation</string>
+    <string name="screen_off_fadeout">Fade out</string>
+    <string name="screen_off_electronbeam">Electron beam</string>
+    <string name="screen_off_scaledown">Scale down</string>
+
     <string name="ok">OK</string>
 
     <!-- About phone screen, build date of ROM -->
@@ -50,4 +57,5 @@
     <string name="volume_adjust_sounds_enable_summary">Play sound when adjusting volume with hard keys</string>
     <string name="link_volume_ringtones">Link ringtone &amp; notifications volumes</string>
     <string name="volume_ring_only_description">Ringtone</string>
+
 </resources>
