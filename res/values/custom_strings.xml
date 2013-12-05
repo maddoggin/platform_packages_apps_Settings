@@ -32,7 +32,6 @@
     <string name="advanced_reboot_title">Advanced reboot</string>
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
 
-
     <!-- Screen off animation -->
     <string name="screen_off_animation">Screen-off animation</string>
     <string name="screen_off_fadeout">Fade out</string>
