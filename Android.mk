@@ -14,8 +14,10 @@ LOCAL_SRC_FILES += $(call all-java-files-under,../../../external/koush/Widgets/W
 LOCAL_RESOURCE_DIR += $(LOCAL_PATH)/res
 LOCAL_RESOURCE_DIR += external/koush/Superuser/Superuser/res
 LOCAL_RESOURCE_DIR += external/koush/Widgets/Widgets/res 
+
 LOCAL_AAPT_FLAGS := --auto-add-overlay \
 	--extra-packages com.koushikdutta.superuser:com.koushikdutta.widgets
+
 LOCAL_PACKAGE_NAME := Settings
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
