@@ -143,6 +143,14 @@
         android:title="@string/security_settings_title"
         android:id="@+id/security_settings" />
 
+    <!-- Apps Permissions -->
+    <header
+        android:id="@+id/appops_settings"
+        android:icon="@drawable/ic_settings_applications"
+        android:fragment="com.android.settings.applications.AppOpsSummary"
+        android:title="@string/appops_settings" />
+
+
     <!-- Language -->
     <header
         android:id="@+id/language_settings"
@@ -201,6 +209,13 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
+
+    <!-- Performance Controls -->
+    <header
+        android:id="@+id/performance_controls"
+        android:fragment="com.brewcrewfoo.performance.activities.MainActivity"
+        android:icon="@drawable/ic_settings_performance"
+        android:title="@string/performance_settings" />
 
     <!-- Superuser -->
     <header
