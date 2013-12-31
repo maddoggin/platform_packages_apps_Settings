@@ -35,7 +35,8 @@
     <CheckBoxPreference
         android:key="advanced_reboot"
         android:title="@string/advanced_reboot_title"
-        android:summary="@string/advanced_reboot_summary" />
+        android:summary="@string/advanced_reboot_summary" 
+        android:persistent="false"/>
 
     <CheckBoxPreference 
         android:key="keep_screen_on" 
