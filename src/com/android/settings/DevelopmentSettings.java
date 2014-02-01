@@ -145,6 +145,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final String TERMINAL_APP_PACKAGE = "com.android.terminal";
 
+    private static final String DEVELOPMENT_TOOLS = "development_tools";
+
     private static final String ADVANCED_REBOOT_KEY = "advanced_reboot";
 
     private static final int RESULT_DEBUG_APP = 1000;
@@ -201,6 +203,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private CheckBoxPreference mShowAllANRs;
 
     private CheckBoxPreference mAdvancedReboot;
+    private PreferenceScreen mDevelopmentTools;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
     private final ArrayList<CheckBoxPreference> mResetCbPrefs
@@ -325,6 +328,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mAllPrefs.add(hdcpChecking);
             removePreferenceForProduction(hdcpChecking);
         }
+
+        mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
+        mAllPrefs.add(mDevelopmentTools);
     }
 
     private ListPreference addListPreference(String prefKey) {
@@ -508,18 +514,18 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void resetAdvancedRebootOptions() {
         Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.Global.ADVANCED_REBOOT, 0);
+                Settings.Secure.ADVANCED_REBOOT, 0);
     }
 
     private void writeAdvancedRebootOptions() {
         Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.Global.ADVANCED_REBOOT,
+                Settings.Secure.ADVANCED_REBOOT,
                 mAdvancedReboot.isChecked() ? 1 : 0);
     }
 
     private void updateAdvancedRebootOptions() {
         mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Global.ADVANCED_REBOOT, 1) != 0);
+                Settings.Secure.ADVANCED_REBOOT, 1) != 0);
      }
 
     private void resetDangerousOptions() {
@@ -1163,6 +1169,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                             Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0);
                     mLastEnabledState = isChecked;
                     setPrefsEnabledState(mLastEnabledState);
+
+                    // Hide development settings from the Settings menu (Android 4.2 behaviour)
+                    getActivity().getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE).edit()
+                        .putBoolean(PREF_SHOW, false)
+                        .apply();
                 }
             }
         }
