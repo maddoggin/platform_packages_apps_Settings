@@ -157,7 +157,7 @@ public class RingerVolumePreference extends VolumePreference {
         setStreamType(AudioManager.STREAM_RING);
 
         setDialogLayoutResource(R.layout.preference_dialog_ringervolume);
-        //setDialogIcon(R.drawable.ic_settings_sound);
+        setDialogTitle(null);
 
         mSeekBarVolumizer = new SeekBarVolumizer[SEEKBAR_ID.length];
 
@@ -185,6 +185,79 @@ public class RingerVolumePreference extends VolumePreference {
             ImageView checkbox = (ImageView) view.findViewById(CHECKBOX_VIEW_ID[i]);
             mCheckBoxes[i] = checkbox;
         }
+
+        // Volumes link checkbox
+        final CheckBox linkCheckBox = (CheckBox) view.findViewById(R.id.link_ring_and_volume);
+
+        final View ringerSection = view.findViewById(R.id.ringer_section);
+        final View notificationSection = view.findViewById(R.id.notification_section);
+        final View linkVolumesSection = view.findViewById(R.id.link_volumes_section);
+        final TextView ringerDesc = (TextView) ringerSection
+                .findViewById(R.id.ringer_description_text);
+
+        if (Utils.isVoiceCapable(getContext())) {
+            if (System.getInt(getContext().getContentResolver(),
+                    System.VOLUME_LINK_NOTIFICATION, 1) == 1) {
+                linkCheckBox.setChecked(true);
+                notificationSection.setVisibility(View.GONE);
+                ringerDesc.setText(R.string.volume_ring_description);
+            } else {
+                linkCheckBox.setChecked(false);
+                notificationSection.setVisibility(View.VISIBLE);
+                ringerDesc.setText(R.string.volume_ring_only_description);
+            }
+
+            linkCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        notificationSection.setVisibility(View.GONE);
+                        ringerDesc.setText(R.string.volume_ring_description);
+                        final int volume = mAudioManager.getStreamVolume(AudioSystem.STREAM_RING);
+                        mAudioManager.setStreamVolume(AudioSystem.STREAM_NOTIFICATION, volume, 0);
+                        Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                                Settings.System.VOLUME_LINK_NOTIFICATION, 1);
+                    } else {
+                        notificationSection.setVisibility(View.VISIBLE);
+                        ringerDesc.setText(R.string.volume_ring_only_description);
+                        Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                                Settings.System.VOLUME_LINK_NOTIFICATION, 0);
+                    }
+                    updateSlidersAndMutedStates();
+                }
+
+            });
+        } else {
+            ringerSection.setVisibility(View.GONE);
+            linkVolumesSection.setVisibility(View.GONE);
+        }
+
+        // Volume adjust sound checkbox
+        final CheckBox adjustCheckBox = (CheckBox) view.findViewById(R.id.volume_adjust_sound);
+        final View volumeAdjustSection = view.findViewById(R.id.volume_adjust_section);
+
+        if (System.getInt(getContext().getContentResolver(),
+                System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) == 1) {
+            adjustCheckBox.setChecked(true);
+        } else {
+            adjustCheckBox.setChecked(false);
+        }
+
+        adjustCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                            Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1);
+                } else {
+                    Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                            Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 0);
+                }
+                updateSlidersAndMutedStates();
+            }
+        });
 
         // Load initial states from AudioManager
         updateSlidersAndMutedStates();
@@ -222,15 +295,18 @@ public class RingerVolumePreference extends VolumePreference {
                 }
             }
         } else {
-            // Disable either ringer+notifications or notifications
-            int id;
+            // Disable ringer or notifications if required
+            int id = -1;
             if (!Utils.isVoiceCapable(getContext())) {
                 id = R.id.ringer_section;
-            } else {
+            } else if (System.getInt(getContext().getContentResolver(),
+                    System.VOLUME_LINK_NOTIFICATION, 1) == 1) {
                 id = R.id.notification_section;
             }
-            View hideSection = view.findViewById(id);
-            hideSection.setVisibility(View.GONE);
+            if (id != -1){
+                View hideSection = view.findViewById(id);
+                hideSection.setVisibility(View.GONE);
+            }
         }
     }
 

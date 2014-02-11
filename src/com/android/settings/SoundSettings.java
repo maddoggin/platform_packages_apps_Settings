@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * This code has been modified. Portions copyright (C) 2013, ParanoidAndroid Project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
 
 package com.android.settings;
 
-import com.android.settings.bluetooth.DockEventReceiver;
+import com.android.settings.bluetooth.DockEventReceiver;    
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -61,6 +62,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
     private static final String KEY_RING_VOLUME = "ring_volume";
+    private static final String KEY_INCREASING_RING = "increasing_ring";
     private static final String KEY_MUSICFX = "musicfx";
     private static final String KEY_DTMF_TONE = "dtmf_tone";
     private static final String KEY_SOUND_EFFECTS = "sound_effects";
@@ -75,10 +77,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOCK_AUDIO_SETTINGS = "dock_audio";
     private static final String KEY_DOCK_SOUNDS = "dock_sounds";
     private static final String KEY_DOCK_AUDIO_MEDIA_ENABLED = "dock_audio_media_enabled";
+    private static final String KEY_VOLUME_WAKE_SCREEN = "volume_wake_screen";
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
-            KEY_EMERGENCY_TONE, KEY_VIBRATE
+            KEY_EMERGENCY_TONE, KEY_VIBRATE, KEY_INCREASING_RING
     };
 
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
@@ -92,6 +95,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mLockSounds;
     private Preference mRingtonePreference;
     private Preference mNotificationPreference;
+    private CheckBoxPreference mVolumeWakeScreen;
 
     private Runnable mRingtoneLookupRunnable;
 
@@ -131,10 +135,14 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         ContentResolver resolver = getContentResolver();
         int activePhoneType = TelephonyManager.getDefault().getCurrentPhoneType();
-
+        boolean aospDialer = Settings.System.getInt(resolver, Settings.System.AOSP_DIALER, 0) == 1;
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         addPreferencesFromResource(R.xml.sound_settings);
+
+        if (!aospDialer) {
+            getPreferenceScreen().removePreference(findPreference(KEY_INCREASING_RING));
+        }
 
         if (TelephonyManager.PHONE_TYPE_CDMA != activePhoneType) {
             // device is not CDMA, do not display CDMA emergency_tone
@@ -171,6 +179,10 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mLockSounds.setPersistent(false);
         mLockSounds.setChecked(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
+
+        mVolumeWakeScreen = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE_SCREEN);
+        mVolumeWakeScreen.setChecked(Settings.System.getInt(resolver,
+                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
 
         mRingtonePreference = findPreference(KEY_RINGTONE);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
@@ -303,6 +315,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
                     mLockSounds.isChecked() ? 1 : 0);
 
+        } else if (preference == mVolumeWakeScreen) {
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
+                    mVolumeWakeScreen.isChecked() ? 1 : 0);
         } else if (preference == mMusicFx) {
             // let the framework fire off the intent
             return false;
@@ -336,6 +351,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         } else if (preference == mDockAudioMediaEnabled) {
             Settings.Global.putInt(getContentResolver(), Settings.Global.DOCK_AUDIO_MEDIA_ENABLED,
                     mDockAudioMediaEnabled.isChecked() ? 1 : 0);
+        } else {
+            // If we didn't handle it, let preferences handle it.
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return true;
     }
