@@ -53,26 +53,6 @@
         <item>5000</item>
     </string-array>
 
-    <string-array name="increasing_ring_interval_entries" translatable="false">
-        <item>@string/increasing_ring_interval_eachring</item>
-        <item>@string/increasing_ring_interval_half_second</item>
-        <item>@string/increasing_ring_interval_1second</item>
-        <item>@string/increasing_ring_interval_2seconds</item>
-        <item>@string/increasing_ring_interval_3seconds</item>
-        <item>@string/increasing_ring_interval_5seconds</item>
-        <item>@string/increasing_ring_interval_10seconds</item>
-    </string-array>
-
-    <integer-array name="increasing_ring_interval_values" translatable="false">
-        <item>0</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>5000</item>
-        <item>10000</item>
-    </integer-array>
-
     <string-array name="entries_battery_submenu">
         <item>@string/battery_bar</item>
         <item>@string/battery_bar_percent</item>
@@ -85,33 +65,5 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>
-
-    <!-- QuietHours Incoming Contact -->
-    <string-array name="incoming_contact_entries" translatable="false">
-        <item>@string/quiet_hours_auto_disabled</item>
-        <item>@string/quiet_hours_auto_enabled</item>
-        <item>@string/quiet_hours_auto_contacts</item>
-    </string-array>
-    <string-array name="incoming_contact_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <!-- QuietHours Calls Required -->
-    <string-array name="incoming_call_number_entries" translatable="false">
-        <item>@string/two</item>
-        <item>@string/three</item>
-        <item>@string/four</item>
-        <item>@string/five</item>
-        <item>@string/six</item>
-    </string-array>
-    <string-array name="incoming_call_number_values" translatable="false">
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
     </string-array>
 </resources>

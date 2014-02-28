@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
- * This code has been modified. Portions copyright (C) 2013, ParanoidAndroid Project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +16,7 @@
 
 package com.android.settings;
 
-import com.android.settings.bluetooth.DockEventReceiver;    
+import com.android.settings.bluetooth.DockEventReceiver;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -62,7 +61,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
     private static final String KEY_RING_VOLUME = "ring_volume";
-    private static final String KEY_INCREASING_RING = "increasing_ring";
     private static final String KEY_MUSICFX = "musicfx";
     private static final String KEY_DTMF_TONE = "dtmf_tone";
     private static final String KEY_SOUND_EFFECTS = "sound_effects";
@@ -81,7 +79,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
-            KEY_EMERGENCY_TONE, KEY_VIBRATE, KEY_INCREASING_RING
+            KEY_EMERGENCY_TONE, KEY_VIBRATE
     };
 
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
